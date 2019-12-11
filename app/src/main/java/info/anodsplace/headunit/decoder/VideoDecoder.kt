@@ -127,7 +127,7 @@ class VideoDecoder {
     private fun codecOutputConsume() {                                // Called only by media_decode() after codec_input_provide()
         var index: Int
         while (true) {                                                          // Until no more buffers...
-            index = mCodec!!.dequeueOutputBuffer(mCodecBufferInfo, 0)        // Dequeue an output buffer but do not wait
+            index = mCodecBufferInfo?.let { mCodec!!.dequeueOutputBuffer(it, 0) }!!        // Dequeue an output buffer but do not wait
             if (index >= 0)
                 mCodec!!.releaseOutputBuffer(index, true /*render*/)           // Return the buffer to the codec
             else if (index == MediaCodec.INFO_OUTPUT_BUFFERS_CHANGED)
