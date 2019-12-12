@@ -24,5 +24,6 @@
     <string name="disabled">Disabled</string>
     <string name="resolution">Resolution: %s</string>
     <string name="change_resolution">Change resolution</string>
+    <string name="Wifi">Wifi</string>
 </resources>
 

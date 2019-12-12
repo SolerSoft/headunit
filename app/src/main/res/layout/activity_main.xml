@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,27 +15,36 @@
 
         <ImageButton
             android:id="@+id/settings"
-            android:layout_width="128dp"
+            android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/ic_settings_white_24dp"
             android:background="?android:attr/actionBarItemBackground"
-            android:contentDescription="@string/settings" />
+            android:contentDescription="@string/settings"
+            android:src="@drawable/ic_settings_white_24dp" />
 
         <ImageButton
             android:id="@+id/video_button"
-            android:layout_width="128dp"
+            android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/ic_launch_white_24dp"
             android:background="?android:attr/actionBarItemBackground"
-            android:contentDescription="@string/video" />
+            android:contentDescription="@string/video"
+            android:src="@drawable/ic_launch_white_24dp" />
 
         <ImageButton
             android:id="@+id/usb"
-            android:layout_width="128dp"
+            android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/ic_usb_white_24dp"
             android:background="?android:attr/actionBarItemBackground"
-            android:contentDescription="@string/usb" />
+            android:contentDescription="@string/usb"
+            android:src="@drawable/ic_usb_white_24dp" />
+
+        <ImageButton
+            android:id="@+id/net"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:background="?android:attr/actionBarItemBackground"
+            android:contentDescription="@string/Wifi"
+            android:src="@drawable/ic_network_wifi_white_24dp" />
 
     </LinearLayout>
 

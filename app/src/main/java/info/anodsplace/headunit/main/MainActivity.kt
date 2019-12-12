@@ -7,11 +7,11 @@ import android.view.KeyEvent
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
-import androidx.core.content.PermissionChecker
 import androidx.fragment.app.FragmentActivity
 import info.anodsplace.headunit.App
 import info.anodsplace.headunit.R
 import info.anodsplace.headunit.aap.AapProjectionActivity
+import info.anodsplace.headunit.aap.AapService
 import info.anodsplace.headunit.utils.AppLog
 import info.anodsplace.headunit.utils.NetworkUtils
 import info.anodsplace.headunit.utils.SystemUI
@@ -38,6 +38,19 @@ class MainActivity : FragmentActivity() {
             startActivity(aapIntent)
         }
 
+        net.setOnClickListener {
+            /*
+            supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_content, NetworkListFragment())
+                    .commit()
+             */
+
+            AppLog.e("Starting service in Wifi mode")
+            startService(AapService.createIntent("127.0.0.1", this))
+            // startService(AapService.createIntent("192.168.1.173", this))
+        }
+
         usb.setOnClickListener {
             supportFragmentManager
                     .beginTransaction()
@@ -46,6 +59,8 @@ class MainActivity : FragmentActivity() {
         }
 
         settings.setOnClickListener {
+            // HACK
+            video_button.isEnabled = App.provide(this).transport.isAlive
             supportFragmentManager
                     .beginTransaction()
                     .replace(R.id.main_content, SettingsFragment())
